@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samin Sharif</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <section id='intro'>
+        <a href="/" class='title'>
+            <span class='initial'>Samin Sharif</span>
+            <div class='hover-underline'></div>
+        </a>
+        <div class='navbar'>
+            <div class='navbar-items'>
+                <button onclick="smoothToSection('intro')">
+                    About
+                </button>
+                <button onclick="smoothToSection('work')">
+                    Work
+                </button>
+                <button onclick="smoothToSection('projects')">
+                    Projects
+                </button>   
+                <button onclick="smoothToSection('contact')">
+                    Contact
+                </button>  
+            </div>
+        </div>
+        <div class='container'>
+           <div class='changing-textbox'>
+                <span class='changing-text'></span>
+           </div>
+           <div class='info-buttons'>
+                <a href="", target='_blank'><div class='resume-btn'>Resume</div></a>
+                <a href="https://github.com/samincgs", target='_blank'><div class='github-btn'>Github</div></a>
+                <a href="https://www.linkedin.com/in/samin-sharif-/", target='_blank'><div class='linkedin-btn'>Linkedin</div></a>
+           </div>
+           <div class='triangle-arrow' onclick="smoothToSection('work')"></></div>
+        </div>
+    </section>
+
+    <section id="work">
+            <div class='container'>
+                <h2 class='section-title'>Work</h2>
+            </div>
+    </section>
+
+    <section id="projects">
+        <div class='container'>
+            <h2>projects</h2>
+        </div>
+        
+    </section>
+
+  <section id="contact">
+    <div class='container'>
+            <h2>projects</h2>
+        </div>
+  </section>
+
+  <script>
+
+    function smoothToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function updateActiveButtons() {
+
+        const buttons = document.querySelectorAll('.navbar-items button');
+        const sections = document.querySelectorAll('section');
+        let current = 0;
+
+        for (let i = 0; i < sections.length; i++) {
+            const sectionTop = sections[i].offsetTop;
+            if (scrollY >= sectionTop) {
+                current = i;
+            }
+        }
+
+        for (let i = 0; i < buttons.length; i++) {
+        if (i === current) {
+            buttons[i].classList.add('active');
+        } else {
+            buttons[i].classList.remove('active');
+        }
+    }
+    }
+
+    function changingText() {
+        span_text = document.querySelector('.changing-text')
+
+        const quotes = [
+        "Software developer with over 4 years of experience building software solutions. My expertise includes Python, JavaScript, and more.",
+        "Experienced software developer with 4+ years in creating software solutions. Skilled in Python, JavaScript, and other technologies.",
+        "I am a software developer with over 4 years of experience, specializing in Python, JavaScript, and building efficient software solutions."
+        ];
+
+
+        let index = 0
+
+        function showNextQuote() {
+            span_text.style.opacity = 0
+
+            setTimeout(() => {
+                span_text.innerHTML = quotes[index];
+                span_text.style.opacity = 1
+                index = (index + 1) % quotes.length;
+
+
+            }, 600)
+        }
+
+        span_text.innerHTML = quotes[index]
+        span_text.style.opacity = 1;
+        index++
+        
+        setInterval(showNextQuote, 7000)
+
+    }
+
+    
+    changingText()
+    updateActiveButtons()
+    window.addEventListener('scroll', updateActiveButtons)
+
+
+
+  </script>
+    
+</body>
+</html>
