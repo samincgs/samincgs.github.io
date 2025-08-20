@@ -14,7 +14,6 @@ body {
   font-family: 'Geist Mono', sans-serif;
   font-size: 100%;
   background-color: #010001;
-  background: url('background.png');
   color: #fffefe;
 }
 
@@ -62,7 +61,6 @@ a {
   color: #979796;
   display: flex;
   align-items: center;
-  font-size: 1.2em;
   gap: 2em;
 }
 
@@ -71,6 +69,7 @@ button {
   background-color: inherit;
   color: inherit;
   border: none;
+  font-size: 1em;
 }
 
 button:hover {
@@ -176,10 +175,16 @@ section {
   display: flex;
   gap: 1em;
   padding: 0.75em 0.1;
-  width: 24em;
+  height: 7em;
   border: 1px solid #979796;
   border-radius: 0.35em;
   margin-bottom: 1em;
+  width: 24em;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
 }
 
 .game-title {
@@ -188,9 +193,11 @@ section {
 }
 
 .game-img {
-  width: 11em;
+  width: 9em;
+  height: 100%;
   border: 1px solid #fefeff;
   border-radius: inherit;
+  object-fit: cover;
 }
 
 .game-info {

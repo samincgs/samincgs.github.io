@@ -3,7 +3,7 @@ const buttons = document.querySelectorAll('.navbar-items button')
 const sections = document.querySelectorAll('section')
 const project_cards = document.querySelector('.project-cards')
 
-const projectChoice = 'personal'
+let projectChoice = 'professional'
 
 const quotes = [
   'Software developer with over 4 years of experience building software solutions. My expertise includes Python, JavaScript, and more.',
@@ -43,24 +43,56 @@ const workDetails = {
   },
 }
 
-const projects = {
+const personal_projects = {
   'Persona Notepad': {
     description:
       'A notepad that mixes my favorite coding language with my favorite game',
     tools: ['Python', 'Tkinter', 'Pillow', 'PyAudio'],
-    image: 'persona-notepad.png',
+    image: 'images/persona-notepad.png',
+    url: 'https://github.com/samincgs/persona-notepad',
   },
   '2D Adventure Game': {
     description: 'An Old School Pokemon Style RPG game.',
     tools: ['Python', 'Pygame', 'JSON'],
-    image: '2dadventuregame.png',
+    image: 'images/2dadventuregame.png',
+    url: 'https://github.com/samincgs/2DAdventure',
   },
 
   'Chess Engine': {
     description: 'A Chess Engine',
     tools: ['Python', 'Pygame'],
-    image: 'chess.png',
+    image: 'images/chess.png',
+    url: 'https://github.com/samincgs/chess',
   },
+}
+
+const work_projects = {
+  'Netflix Show Release Trend Analysis': {
+    description:
+      'A notepad that mixes my favorite coding language with my favorite game',
+    tools: ['Excel', 'SQL', 'Python', 'Pandas', 'Matplotlib', 'Scikit-Learn'],
+    image: 'images/netflix_trend.png',
+    url: 'https://github.com/samincgs/netflix-show-release-trend-analysis',
+  },
+  'Loan Repayment Factors Analysis': {
+    description:
+      'A notepad that mixes my favorite coding language with my favorite game',
+    tools: ['Excel', 'Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scipy'],
+    image: 'images/loan_repayment.png',
+    url: 'https://github.com/samincgs/netflix-show-release-trend-analysis',
+  },
+  Quill: {
+    description:
+      'A notepad that mixes my favorite coding language with my favorite game',
+    tools: ['Python', 'Flask', 'MongoDB', 'HTML', 'CSS', 'JavaScript'],
+    image: 'images/quill.png',
+    url: 'https://github.com/samincgs/quill',
+  },
+}
+
+projects_set = {
+  personal: personal_projects,
+  professional: work_projects,
 }
 
 function smoothToSection(sectionId) {
@@ -129,12 +161,15 @@ function changingText() {
   span_text.style.opacity = 1
   index++
 
-  setInterval(showNextQuote, 5000)
+  setInterval(showNextQuote, 7000)
 }
 
-function addProjects() {
+function addProjects(projects) {
+  project_cards.innerHTML = ''
+
   Object.entries(projects).forEach(([projectName, projectData]) => {
-    console.log(projectData)
+    const a = document.createElement('a')
+    a.href = projectData.url
     const projectCard = document.createElement('div')
     projectCard.classList.add('project-card')
 
@@ -167,13 +202,21 @@ function addProjects() {
     }
 
     gameInfo.appendChild(toolDiv)
-    project_cards.appendChild(projectCard)
+    a.appendChild(projectCard)
+    project_cards.appendChild(a)
   })
+}
+
+function updateProjects(choice) {
+  if (projectChoice != choice) {
+    projectChoice = choice
+    addProjects(projects_set[projectChoice])
+  }
 }
 
 // initial calls
 changingText()
-addProjects()
+addProjects(projects_set[projectChoice])
 updateActiveButtons()
 updateNavbar()
 

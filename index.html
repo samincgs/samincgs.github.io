@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samin Sharif</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="static/main.css">
 </head>
 <body>
     <!-- INTRO SECTION -->
@@ -57,8 +57,8 @@
             <div class='project-header'>
                 <h2 class='section-title'>Projects</h2>
                 <div class='project-btn-choices'>
-                    <button class='professional-btn'>Professional</button>
-                    <button class='personal-btn'>Personal</button>
+                    <button class='professional-btn' onclick="updateProjects('professional')">Professional</button>
+                    <button class='personal-btn' onclick="updateProjects('personal')">Personal</button>
                 </div>
             </div>
                 <div class='project-cards'>
@@ -72,6 +72,6 @@
             <h2>Contact</h2>
         </div>
   </section>
-    <script src="index.js"></script>    
+    <script type='text/javascript' src="static/index.js"></script>    
 </body>
 </html>
