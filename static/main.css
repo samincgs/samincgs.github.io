@@ -13,7 +13,9 @@ html {
 body {
   font-family: 'Geist Mono', sans-serif;
   font-size: 100%;
-  background-color: #010001;
+  background-image: url('../images/background3.png');
+  background-color: rgba(5, 7, 11, 0.9);
+  background-blend-mode: multiply;
   color: #fffefe;
 }
 

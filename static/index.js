@@ -4,7 +4,6 @@ const sections = document.querySelectorAll('section')
 const projectsCard = document.querySelector('.project-cards')
 
 let projectChoice = 'professional'
-
 const projectsSet = {
   personal: personalProjects,
   professional: workProjects,
@@ -80,6 +79,7 @@ function changingText() {
 }
 
 function addProjects(projects) {
+  //fix
   projectsCard.innerHTML = ''
 
   Object.entries(projects).forEach(([projectName, projectData]) => {

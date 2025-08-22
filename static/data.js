@@ -76,6 +76,6 @@ workProjects = {
       'A notepad that mixes my favorite coding language with my favorite game',
     tools: ['Python', 'Flask', 'MongoDB', 'HTML', 'CSS', 'JavaScript'],
     image: 'images/quill.png',
-    url: 'https://github.com/samincgs/quill',
+    url: 'https://github.com/samincgs/quill-blog',
   },
 }
