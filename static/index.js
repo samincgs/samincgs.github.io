@@ -1,7 +1,9 @@
 const navbar = document.querySelector('.navbar')
 const buttons = document.querySelectorAll('.navbar-items button')
 const sections = document.querySelectorAll('section')
-const projectsCard = document.querySelector('.project-cards')
+const contactSection = document.getElementById('contact')
+const projectCards = document.querySelector('.project-cards')
+const workCards = document.querySelector('.work-cards')
 
 let projectChoice = 'professional'
 const projectsSet = {
@@ -37,23 +39,23 @@ function updateActiveButtons() {
 
 function updateNavbar() {
   let showNavbar = false
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
 
   sections.forEach((section) => {
     const rect = section.getBoundingClientRect()
+    const absoluteTop = scrollTop + rect.top
+    const absoluteBottom = absoluteTop + rect.height
 
     if (
-      rect.bottom <= window.innerHeight + 85 &&
-      rect.bottom >= window.innerHeight - 85
+      (scrollTop >= absoluteTop - 60 && scrollTop <= absoluteTop + 60) ||
+      (scrollTop >= absoluteBottom - 60 && scrollTop <= absoluteBottom + 60)
     ) {
       showNavbar = true
     }
   })
 
-  if (showNavbar) {
-    navbar.style.position = 'fixed'
-  } else {
-    navbar.style.position = 'absolute'
-  }
+  navbar.style.display = showNavbar ? 'block' : 'none'
+  navbar.style.position = showNavbar ? 'fixed' : 'absolute'
 }
 
 function changingText() {
@@ -79,48 +81,47 @@ function changingText() {
 }
 
 function addProjects(projects) {
-  //fix
-  projectsCard.innerHTML = ''
+  projectCards.innerHTML = ''
 
-  Object.entries(projects).forEach(([projectName, projectData]) => {
-    const a = document.createElement('a')
-    a.href = projectData.url
+  for (let [projectName, projectData] of Object.entries(projects)) {
+    const projectCard = `
+        <a href=${projectData.url}>
+        <div class='project-card'>
+            <img src=${projectData.image} class='game-img'>
+            <div class='game-info'>
+                <span class='game-title'>${projectName}</span>
+                <span class='game-description'>${projectData.description}</span>
+                <div class='tool-div'>
+                    ${projectData.tools
+                      .map((tool) => `<span class='game-tag'>${tool}</span>`)
+                      .join('')}
+                </div>
+            </div>
+        </div>
+        </a>`
 
-    const projectCard = document.createElement('div')
-    projectCard.classList.add('project-card')
+    projectCards.innerHTML += projectCard
+  }
+}
 
-    const img = document.createElement('img')
-    img.src = projectData.image
-    img.classList.add('game-img')
-    projectCard.appendChild(img)
+function addWorkExperience(experience) {
+  for (let [companyName, workDetails] of Object.entries(experience)) {
+    const experience = `
+    <div class='work-experience'>
+        <img src=${workDetails.image} class='work-img'>
+        <span class='work-company-name'>${companyName.toUpperCase()}</span>
+        <h4 class='work-role'>${workDetails.role}</h4>
+        <div class='work-term'>
+            <span class='work-year'>${workDetails.year}</span>
+            <span class='work-year'>|</span>
+            <span class='work-location'>${workDetails.location}</span>
+        </div>
+        <p class='work-description'>${workDetails.description}</p>
+    </div>
+    `
 
-    const gameInfo = document.createElement('div')
-    gameInfo.classList.add('game-info')
-    projectCard.append(gameInfo)
-
-    const title = document.createElement('span')
-    title.classList.add('game-title')
-    title.innerHTML = projectName
-    gameInfo.appendChild(title)
-
-    const description = document.createElement('span')
-    description.classList.add('game-description')
-    description.innerHTML = projectData.description
-    gameInfo.appendChild(description)
-
-    const toolDiv = document.createElement('div')
-    toolDiv.classList.add('tool-div')
-    for (let tool of projectData.tools) {
-      const toolTags = document.createElement('span')
-      toolTags.classList.add('game-tag')
-      toolTags.innerHTML = tool
-      toolDiv.appendChild(toolTags)
-    }
-
-    gameInfo.appendChild(toolDiv)
-    a.appendChild(projectCard)
-    projectsCard.appendChild(a)
-  })
+    workCards.innerHTML += experience
+  }
 }
 
 function updateProjects(choice) {
@@ -132,7 +133,9 @@ function updateProjects(choice) {
 
 // initial calls
 changingText()
+addWorkExperience(workExperiences)
 addProjects(projectsSet[projectChoice])
+
 updateActiveButtons()
 updateNavbar()
 

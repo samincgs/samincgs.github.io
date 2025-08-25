@@ -13,7 +13,7 @@ html {
 body {
   font-family: 'Geist Mono', sans-serif;
   font-size: 100%;
-  background-image: url('../images/background3.png');
+  background-image: url('/static/images/backgrounds/background.png');
   background-color: rgba(5, 7, 11, 0.9);
   background-blend-mode: multiply;
   color: #fffefe;
@@ -80,8 +80,10 @@ button:hover {
 }
 
 section {
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   font-family: 'Space Grotesk', sans-serif;
+  overflow: visible;
 }
 
 .active {
@@ -91,7 +93,7 @@ section {
 .container {
   position: relative;
   font-weight: 500;
-  width: 30em;
+  width: 28em;
   margin: 0 auto;
   font-size: 2em;
   padding: 3em 0;
@@ -99,11 +101,13 @@ section {
 
 .changing-textbox {
   width: 85%;
-  font-size: 1.6em;
+  font-size: 1.5em;
   margin: 1em auto;
   text-align: center;
   font-weight: 400;
-  height: 10em;
+  height: 5em;
+  margin-bottom: 6em;
+  line-height: 1.4;
 }
 
 .changing-text {
@@ -165,11 +169,16 @@ section {
 }
 
 .section-title {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
-.project-cards {
-  margin: 2em 3em;
+.project-cards,
+.work-cards {
+  margin: 0 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 2em;
 }
 
 .project-card {
@@ -180,7 +189,6 @@ section {
   height: 7em;
   border: 1px solid #979796;
   border-radius: 0.35em;
-  margin-bottom: 1em;
   width: 24em;
   transition: transform 0.3s ease;
 }
@@ -214,6 +222,7 @@ section {
   font-size: 0.95rem;
   font-weight: 200;
   padding-top: 1em;
+  padding-right: 0.5em;
 }
 
 .game-tag {
@@ -237,10 +246,6 @@ section {
   cursor: pointer;
 }
 
-#projects {
-  margin-bottom: 24em;
-}
-
 .game-tag:hover {
   font-weight: bold;
 }
@@ -262,4 +267,50 @@ section {
 .personal-btn:hover {
   text-decoration: underline;
   color: #fefeff;
+}
+
+.footer {
+  font-size: 0.7em;
+  color: #979796;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+.work-img {
+  width: 3.5em;
+  background-color: transparent;
+}
+
+.work-company-name {
+  display: block;
+  font-size: 0.425em;
+  color: #969696;
+  margin-top: 2em;
+}
+
+.work-role {
+  margin-top: 0.4em;
+  font-weight: bold;
+}
+
+.work-term {
+  display: flex;
+  gap: 0.2em;
+  margin-top: 0.4em;
+}
+
+.work-year,
+.work-location {
+  color: #fffefe;
+  font-size: 0.4em;
+  font-weight: 300;
+}
+
+.work-description {
+  margin-top: 1.5em;
+  font-size: 0.45em;
+  font-weight: 400;
+  color: #fefeff;
+  margin-bottom: 4em;
+  line-height: 2em;
 }
