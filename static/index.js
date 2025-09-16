@@ -4,6 +4,8 @@ const sections = document.querySelectorAll('section')
 const contactSection = document.getElementById('contact')
 const projectCards = document.querySelector('.project-cards')
 const workCards = document.querySelector('.work-cards')
+const personalBtn = document.querySelector('.personal-btn')
+const professionalBtn = document.querySelector('.professional-btn')
 
 let projectChoice = 'professional'
 const projectsSet = {
@@ -47,8 +49,8 @@ function updateNavbar() {
     const absoluteBottom = absoluteTop + rect.height
 
     if (
-      (scrollTop >= absoluteTop - 60 && scrollTop <= absoluteTop + 60) ||
-      (scrollTop >= absoluteBottom - 60 && scrollTop <= absoluteBottom + 60)
+      (scrollTop >= absoluteTop - 50 && scrollTop <= absoluteTop + 50) ||
+      (scrollTop >= absoluteBottom - 50 && scrollTop <= absoluteBottom + 50)
     ) {
       showNavbar = true
     }
@@ -129,6 +131,14 @@ function updateProjects(choice) {
     projectChoice = choice
     addProjects(projectsSet[projectChoice])
   }
+
+  if (projectChoice === 'personal') {
+    personalBtn.classList.add('active')
+    professionalBtn.classList.remove('active')
+  } else {
+    professionalBtn.classList.add('active')
+    personalBtn.classList.remove('active')
+  }
 }
 
 // initial calls
@@ -138,6 +148,7 @@ addProjects(projectsSet[projectChoice])
 
 updateActiveButtons()
 updateNavbar()
+updateProjects(projectChoice)
 
 window.addEventListener('scroll', updateActiveButtons)
 window.addEventListener('scroll', updateNavbar)

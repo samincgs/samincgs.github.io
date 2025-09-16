@@ -93,18 +93,18 @@ section {
 .container {
   position: relative;
   font-weight: 500;
-  width: 28em;
+  max-width: 28em;
+  width: 50%;
   margin: 0 auto;
-  font-size: 2em;
+  font-size: 1.8em;
   padding: 3em 0;
 }
 
 .changing-textbox {
-  width: 85%;
-  font-size: 1.5em;
-  margin: 1em auto;
+  width: 95%;
+  font-size: 1.7em;
+  margin: 1.25em auto;
   text-align: center;
-  font-weight: 400;
   height: 5em;
   margin-bottom: 6em;
   line-height: 1.4;
@@ -115,15 +115,16 @@ section {
   display: block;
   width: 100%;
   transition: transform 1s ease, opacity 1s ease;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .info-buttons {
-  margin: -4em 5em;
+  margin: -4em auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2em;
+  gap: 2%;
 }
 
 .github-btn,
@@ -147,14 +148,14 @@ section {
 
 .triangle-arrow {
   position: absolute;
+  margin-top: 2em;
   width: 0;
   height: 0;
-  bottom: -5em;
   left: 50%;
   transform: translateX(-50%);
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 12px solid #fefeff; /* color of the triangle */
+  border-top: 12px solid #fefeff;
   cursor: pointer;
   animation: moveUpDown 1s ease-in-out infinite alternate;
 }
@@ -170,6 +171,7 @@ section {
 
 .section-title {
   font-size: 1.5em;
+  font-weight: 500;
 }
 
 .project-cards,
@@ -203,7 +205,7 @@ section {
 }
 
 .game-img {
-  width: 9em;
+  min-width: 8em;
   height: 100%;
   border: 1px solid #fefeff;
   border-radius: inherit;
@@ -213,6 +215,7 @@ section {
 .game-info {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.25em;
   padding-top: 0.25em;
 }
@@ -228,7 +231,7 @@ section {
 .game-tag {
   display: inline;
   color: #979796;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 200;
 }
 
@@ -283,7 +286,7 @@ section {
 
 .work-company-name {
   display: block;
-  font-size: 0.425em;
+  font-size: 0.45em;
   color: #969696;
   margin-top: 2em;
 }
@@ -302,15 +305,20 @@ section {
 .work-year,
 .work-location {
   color: #fffefe;
-  font-size: 0.4em;
+  font-size: 0.45em;
   font-weight: 300;
 }
 
 .work-description {
   margin-top: 1.5em;
-  font-size: 0.45em;
+  font-size: 0.5em;
   font-weight: 400;
-  color: #fefeff;
+  color: #fefeffe7;
   margin-bottom: 4em;
   line-height: 2em;
+}
+
+.personal-btn.active,
+.professional-btn.active {
+  color: #fff;
 }
