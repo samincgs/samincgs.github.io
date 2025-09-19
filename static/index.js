@@ -39,6 +39,19 @@ function updateActiveButtons() {
   }
 }
 
+function showEmailToast() {
+  navigator.clipboard.writeText(email).then(() => {
+    const toast = document.getElementById('toast')
+    const message = 'Copied Email!'
+    toast.textContent = message
+    toast.classList.add('show')
+
+    setTimeout(() => {
+      toast.classList.remove('show')
+    }, 2000)
+  })
+}
+
 function updateNavbar() {
   let showNavbar = false
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -60,27 +73,27 @@ function updateNavbar() {
   navbar.style.position = showNavbar ? 'fixed' : 'absolute'
 }
 
-function changingText() {
-  spanText = document.querySelector('.changing-text')
+// function changingText() {
+//   spanText = document.querySelector('.changing-text')
 
-  let index = 0
+//   let index = 0
 
-  function showNextQuote() {
-    spanText.style.opacity = 0
+//   function showNextQuote() {
+//     spanText.style.opacity = 0
 
-    setTimeout(() => {
-      spanText.innerHTML = selfQuotes[index]
-      spanText.style.opacity = 1
-      index = (index + 1) % selfQuotes.length
-    }, 600)
-  }
+//     setTimeout(() => {
+//       spanText.innerHTML = selfQuotes[index]
+//       spanText.style.opacity = 1
+//       index = (index + 1) % selfQuotes.length
+//     }, 600)
+//   }
 
-  spanText.innerHTML = selfQuotes[index]
-  spanText.style.opacity = 1
-  index++
+//   spanText.innerHTML = selfQuotes[index]
+//   spanText.style.opacity = 1
+//   index++
 
-  setInterval(showNextQuote, 7000)
-}
+//   setInterval(showNextQuote, 7000)
+// }
 
 function addProjects(projects) {
   projectCards.innerHTML = ''
@@ -142,7 +155,7 @@ function updateProjects(choice) {
 }
 
 // initial calls
-changingText()
+// changingText()
 addWorkExperience(workExperiences)
 addProjects(projectsSet[projectChoice])
 

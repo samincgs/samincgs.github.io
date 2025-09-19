@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samin Sharif</title>
+    <title>Samin Sharif Portfolio</title>
     <link rel="stylesheet" href="static/main.css">
 </head>
 <body>
+        <img src="static/images/projects/turnip_game_2.gif" alt="Turnip Game" id="bg-video">
+
     <!-- INTRO SECTION -->
     <section id='intro'>
         <a class='title' onclick="smoothToSection('intro')">
@@ -24,17 +26,37 @@
                 <button onclick="smoothToSection('projects')">
                     Projects
                 </button>   
-                <button onclick="smoothToSection('contact')">
-                    Contact
-                </button>  
             </div>
         </div>
         <div class='container'>
-           <div class='changing-textbox'>
-                <span class='changing-text'></span>
-                <div class='triangle-arrow' onclick="smoothToSection('work')"></></div>
+           <div class='bio'>
+            <div class='bio-text'>    
+                student, python game developer,
+                <br>
+                and data analyst.
+                <br><br>
+                <span class='bio-hook'>Creating software and games that are both thoughtful and functional.</span>
+            </div>
+            <div class='pixel-logos'>
+                <a href="/static/resume.pdf" target="_blank">
+                    <img src="/static/images/logos/resume_base.png" class="pixel-logo" alt="Resume">
+                </a>
+                <a href="https://github.com/samincgs" target="_blank">
+                    <img src="/static/images/logos/github.png" class="pixel-logo" alt="Github">
+                </a>
+                <a href="https://www.linkedin.com/in/samin-sharif-/" target="_blank">
+                    <img src="/static/images/logos/linkedin.png" class="pixel-logo" alt="Linkedin">
+                </a>
+                <a href="mailto:samincgs21@gmail.com">
+                    <button onclick="showEmailToast()">
+                        <img src="/static/images/logos/gmail.png" class="pixel-logo" alt="Mail", title='samincgs21@gmail.com'>
+                    </button>
+                </a>
+            </div>
            </div>
-           
+           <div id='toast'>
+            Email copied!
+           </div>
         </div>
     </section>
 
@@ -49,30 +71,23 @@
 
     <section id="projects">
         <div class='container'>
+            <div class='project-choices'>
+            <h2 class='section-title'>Projects</h2>
             <div class='project-header'>
-                <h2 class='section-title'>Projects</h2>
                 <div class='project-btn-choices'>
-                    <button class='professional-btn' onclick="updateProjects('professional')">Professional</button>
+                    <button class='professional-btn' onclick="updateProjects('professional')">Field-Relevant</button>
                     <button class='personal-btn' onclick="updateProjects('personal')">Personal</button>
                 </div>
             </div>
+        </div>
                 <div class='project-cards'>
                 </div>
         </div>
-        
-    </section>
-
-  <section id="contact">
-    <div class='container'>
-        <h2>Contact</h2>
-        
-    </div>
-  </section>
-    <div class='footer'>
+         <div class='footer'>
         @ 2025 Samin Sharif. All rights reserved.
     </div>
 
-  
+    </section>
   <script type='text/javascript' src="static/data.js"></script>
     <script type='text/javascript' src="static/index.js"></script>    
 </body>

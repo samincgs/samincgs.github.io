@@ -4,6 +4,7 @@ selfQuotes = [
   'Experienced Python developer leveraging 5+ years of expertise to build tools and deliver effective solutions to difficult problems.',
   'Passionate hobbyist Indie Game Developer designing and building fun interactive pixel art games with Python and Pygame in my spare time.',
 ]
+email = 'samincgs21@gmail.com'
 
 personalProjects = {
   'Persona Notepad': {
@@ -31,10 +32,10 @@ personalProjects = {
 }
 
 workProjects = {
-  'Personal Fitness Data Tracker': {
+  'Apple Health Step Journey Dashboard': {
     description:
       'Created an interactive visualization to track my fitness journey and highlight progress and performance.',
-    tools: ['Excel', 'SQL', 'Power BI', 'DAX'],
+    tools: ['Excel', 'SQL', 'MS SQL Server', 'Power BI', 'DAX', 'XML'],
     image: '/static/images/projects/dashboard.png',
     url: 'https://github.com/samincgs/quill-blog',
   },
@@ -50,7 +51,7 @@ workProjects = {
       'Performed an analysis to identify patterns in loan repayment and reveal insights for better financial understanding.',
     tools: ['Excel', 'Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scipy'],
     image: '/static/images/projects/loan_repayment.png',
-    url: 'https://github.com/samincgs/netflix-show-release-trend-analysis',
+    url: 'https://github.com/samincgs/loan-repayment-factors-analysis',
   },
   Quill: {
     description:
