@@ -69,7 +69,7 @@ workExperiences = {
     location: 'Toronto',
     description:
       'I implemented a Power BI dashboard to automate OSC’s workspace reporting, leveraged GA4 to double monthly returning website users, and engineered a Power Apps/Power Automate solution to unify project forms across departments, improving communication and coordination for events.',
-    image: '/static/images/work/osc2.png',
+    image: '/static/images/work/osc.png',
   },
   'Treasury Board Secretariat': {
     role: 'Business Finance Analyst',
@@ -77,7 +77,7 @@ workExperiences = {
     location: 'Toronto',
     description:
       'I managed and analyzed employee records using Planview and Excel, ensuring accurate and timely reporting for the fiscal quarter, while creating SharePoint sites to streamline document storage and improve collaboration across teams.',
-    image: '/static/images/work/tbs2.png',
+    image: '/static/images/work/tbs.png',
   },
   WiConnect: {
     role: 'Junior IT Support',
