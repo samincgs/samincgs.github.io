@@ -240,10 +240,11 @@ section {
 .bio-text {
   margin-left: 1em;
   font-size: 0.66em;
+  margin-bottom: 1.3em;
 }
 
 .bio-hook {
-  font-size: 0.8em;
+  font-size: 0.84em;
 }
 
 .pixel-logos {
