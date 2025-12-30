@@ -36,8 +36,8 @@ workProjects = {
     description:
       'Created an interactive visualization to track my fitness journey and highlight progress and performance.',
     tools: ['Excel', 'SQL', 'MS SQL Server', 'Power BI', 'DAX', 'XML'],
-    image: '/static/images/projects/dashboard.png',
-    url: 'https://github.com/samincgs/quill-blog',
+    image: '/static/images/projects/workout-tracker-dashboard.png',
+    url: 'https://github.com/samincgs/step-tracker-dashboard',
   },
   'Netflix Show Release Trend Analysis': {
     description:
