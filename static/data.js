@@ -58,7 +58,7 @@ workProjects = {
       'Built a full-stack web application that allows users to share inspiring personal stories and connect with others.',
     tools: ['Python', 'Flask', 'MongoDB', 'HTML', 'CSS', 'JavaScript'],
     image: '/static/images/projects/quill.png',
-    url: 'https://github.com/samincgs/quill-blog',
+    url: 'https://quill-blog.onrender.com',
   },
 }
 
