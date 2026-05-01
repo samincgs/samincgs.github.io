@@ -68,7 +68,7 @@ workExperiences = {
     year: "Current",
     location: "Toronto",
     description:
-      "I developed automation tools and data workflows to support fraud investigations, delivering $500K in annual savings and increasing investigation throughput by 20% while leveraging AI to streamline analysis.",
+      "I developed automation tools and data workflows to support fraud investigations, delivering $500K in annual savings and increasing throughput by 20% through AI-driven analysis. I also conducted advanced fraud analysis to identify threat actors and enhance controls to protect customers.",
     image: "/static/images/work/td.png",
   },
   "Ontario Science Centre": {
