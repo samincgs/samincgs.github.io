@@ -1,76 +1,76 @@
-const navbar = document.querySelector('.navbar')
-const buttons = document.querySelectorAll('.navbar-items button')
-const sections = document.querySelectorAll('section')
-const contactSection = document.getElementById('contact')
-const projectCards = document.querySelector('.project-cards')
-const workCards = document.querySelector('.work-cards')
-const personalBtn = document.querySelector('.personal-btn')
-const professionalBtn = document.querySelector('.professional-btn')
+const navbar = document.querySelector(".navbar");
+const buttons = document.querySelectorAll(".navbar-items button");
+const sections = document.querySelectorAll("section");
+const contactSection = document.getElementById("contact");
+const projectCards = document.querySelector(".project-cards");
+const workCards = document.querySelector(".work-cards");
+const personalBtn = document.querySelector(".personal-btn");
+const professionalBtn = document.querySelector(".professional-btn");
 
-let projectChoice = 'professional'
+let projectChoice = "professional";
 const projectsSet = {
   personal: personalProjects,
   professional: workProjects,
-}
+};
 
 function smoothToSection(sectionId) {
-  const section = document.getElementById(sectionId)
+  const section = document.getElementById(sectionId);
   if (section) {
-    section.scrollIntoView()
+    section.scrollIntoView();
   }
 }
 
 function updateActiveButtons() {
-  let current = 0
+  let current = 0;
 
   for (let i = 0; i < sections.length; i++) {
-    const sectionTop = sections[i].offsetTop
+    const sectionTop = sections[i].offsetTop;
     if (scrollY >= sectionTop - 5) {
-      current = i
+      current = i;
     }
   }
 
   for (let i = 0; i < buttons.length; i++) {
     if (i === current) {
-      buttons[i].classList.add('active')
+      buttons[i].classList.add("active");
     } else {
-      buttons[i].classList.remove('active')
+      buttons[i].classList.remove("active");
     }
   }
 }
 
 function showEmailToast() {
   navigator.clipboard.writeText(email).then(() => {
-    const toast = document.getElementById('toast')
-    const message = 'Copied Email!'
-    toast.textContent = message
-    toast.classList.add('show')
+    const toast = document.getElementById("toast");
+    const message = "Copied Email!";
+    toast.textContent = message;
+    toast.classList.add("show");
 
     setTimeout(() => {
-      toast.classList.remove('show')
-    }, 2000)
-  })
+      toast.classList.remove("show");
+    }, 2000);
+  });
 }
 
 function updateNavbar() {
-  let showNavbar = false
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  let showNavbar = false;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   sections.forEach((section) => {
-    const rect = section.getBoundingClientRect()
-    const absoluteTop = scrollTop + rect.top
-    const absoluteBottom = absoluteTop + rect.height
+    const rect = section.getBoundingClientRect();
+    const absoluteTop = scrollTop + rect.top;
+    const absoluteBottom = absoluteTop + rect.height;
 
     if (
       (scrollTop >= absoluteTop - 50 && scrollTop <= absoluteTop + 50) ||
       (scrollTop >= absoluteBottom - 50 && scrollTop <= absoluteBottom + 50)
     ) {
-      showNavbar = true
+      showNavbar = true;
     }
-  })
+  });
 
-  navbar.style.display = showNavbar ? 'block' : 'none'
-  navbar.style.position = showNavbar ? 'fixed' : 'absolute'
+  navbar.style.display = showNavbar ? "block" : "none";
+  navbar.style.position = showNavbar ? "fixed" : "absolute";
 }
 
 // function changingText() {
@@ -96,7 +96,7 @@ function updateNavbar() {
 // }
 
 function addProjects(projects) {
-  projectCards.innerHTML = ''
+  projectCards.innerHTML = "";
 
   for (let [projectName, projectData] of Object.entries(projects)) {
     const projectCard = `
@@ -109,13 +109,13 @@ function addProjects(projects) {
                 <div class='tool-div'>
                     ${projectData.tools
                       .map((tool) => `<span class='game-tag'>${tool}</span>`)
-                      .join('')}
+                      .join("")}
                 </div>
             </div>
         </div>
-        </a>`
+        </a>`;
 
-    projectCards.innerHTML += projectCard
+    projectCards.innerHTML += projectCard;
   }
 }
 
@@ -133,35 +133,35 @@ function addWorkExperience(experience) {
         </div>
         <p class='work-description'>${workDetails.description}</p>
     </div>
-    `
+    `;
 
-    workCards.innerHTML += experience
+    workCards.innerHTML += experience;
   }
 }
 
 function updateProjects(choice) {
   if (projectChoice != choice) {
-    projectChoice = choice
-    addProjects(projectsSet[projectChoice])
+    projectChoice = choice;
+    addProjects(projectsSet[projectChoice]);
   }
 
-  if (projectChoice === 'personal') {
-    personalBtn.classList.add('active')
-    professionalBtn.classList.remove('active')
+  if (projectChoice === "personal") {
+    personalBtn.classList.add("active");
+    professionalBtn.classList.remove("active");
   } else {
-    professionalBtn.classList.add('active')
-    personalBtn.classList.remove('active')
+    professionalBtn.classList.add("active");
+    personalBtn.classList.remove("active");
   }
 }
 
 // initial calls
 // changingText()
-addWorkExperience(workExperiences)
-addProjects(projectsSet[projectChoice])
+addWorkExperience(workExperiences);
+addProjects(projectsSet[projectChoice]);
 
-updateActiveButtons()
-updateNavbar()
-updateProjects(projectChoice)
+updateActiveButtons();
+updateNavbar();
+updateProjects(projectChoice);
 
-window.addEventListener('scroll', updateActiveButtons)
-window.addEventListener('scroll', updateNavbar)
+window.addEventListener("scroll", updateActiveButtons);
+window.addEventListener("scroll", updateNavbar);
