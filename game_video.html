@@ -4,42 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Showcase</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
-
-        body {
-            margin: 0;
-            background: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: white;
-            text-align: center;
-            font-family: 'Geist Mono', sans-serif;
-        }
-
-        video {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
-
-        .game-note {
-            margin: 2.5em 0 1.5em;
-            font-size: 0.85em;
-            opacity: 0.8;
-            letter-spacing: 0.05em;
-        }
-    </style>
+    <link rel="stylesheet" href="static/main.css">
 </head>
 
 <body>
-    <video autoplay muted loop playsinline>
-        <source src="static/videos/games_clip.mp4" type="video/mp4">
-    </video>
-    <div class="game-note">* All assets and code were created by me. Built using Python. *</div>
+    <section class="game-video-overlay">
+        <video class="game-video" muted loop playsinline>
+            <source src="static/videos/games_clip.mp4" type="video/mp4">
+        </video>
+        <div class="game-note">* All assets and code were created by me. Built using Python. *</div>
+    </section>
 </body>
 
 </html>

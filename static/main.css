@@ -566,3 +566,26 @@ section {
     max-width: 35em;
   }
 }
+
+/* Game Videos HTML page */
+.game-video-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+.game-video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.game-note {
+  margin: 2.5em 0 1.5em;
+  font-size: 0.9em;
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+}
